@@ -89,4 +89,4 @@ end
 
 Let me know if you find any bug for this particular plugin.
 
-1: https://github.com/siong1987/yab62
+[1]: https://github.com/siong1987/yab62
