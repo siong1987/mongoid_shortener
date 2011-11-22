@@ -15,14 +15,14 @@ module MongoidShortener
     REGEX_HTTP_URL = /^\s*(http[s]?:\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?\s*$/i
     REGEX_LINK_HAS_PROTOCOL = Regexp.new('\Ahttp:\/\/|\Ahttps:\/\/', Regexp::IGNORECASE)
 
-    validates_format_of :url, :with => REGEX_HTTP_URL, :allow_blank => true
+    validates_format_of :url, :with => REGEX_HTTP_URL
 
     validates_presence_of :url
     validates_uniqueness_of :url
 
     validates_presence_of :unique_key
     validates_uniqueness_of :unique_key
-    
+
     attr_accessible :url
 
     before_validation :clean_destination_url, :init_unique_key, :on => :create
@@ -45,17 +45,21 @@ module MongoidShortener
     # link to a user if one specified
     # throw an exception if anything goes wrong
     def self.generate!(orig_url)
+      if !orig_url.blank? and orig_url !~ REGEX_LINK_HAS_PROTOCOL
+        orig_url.insert(0, URL_PROTOCOL_HTTP)
+      end
+
       # don't want to generate the link if it has already been generated
       # so check the datastore
       sl = ShortenedUrl.where(:url => orig_url).first
 
-      return sl if sl
+      return MongoidShortener.prefix_url + sl.unique_key if sl
 
       # create the shortened link, storing it
       sl = ShortenedUrl.create!(:url => orig_url)
 
       # return the url
-      return sl
+      return MongoidShortener.prefix_url + sl.unique_key
     end
 
     # return shortened url on success, nil on failure
@@ -63,7 +67,7 @@ module MongoidShortener
       sl = nil
 
       begin
-        sl = ShortenedUrl::generate!(orig_url, user)
+        sl = ShortenedUrl::generate!(orig_url)
       rescue
         sl = nil
       end

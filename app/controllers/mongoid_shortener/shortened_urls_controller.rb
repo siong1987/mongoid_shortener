@@ -12,7 +12,7 @@ module MongoidShortener
       else
         # if we don't find the shortened link, redirect to the root
         # make this configurable in future versions
-        head :moved_permanently, :location => main_app.root_url
+        head :moved_permanently, :location => MongoidShortener.root_url
       end
     end
   end

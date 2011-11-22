@@ -3,6 +3,7 @@ PATH
   specs:
     mongoid_shortener (0.0.1)
       rails (~> 3.1.1)
+      yab62 (= 1.0.1)
 
 GEM
   remote: http://rubygems.org/

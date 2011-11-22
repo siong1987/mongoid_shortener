@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount MongoidShortener::Engine => "/mongoid_shortener"
+  match '/:unique_key' => 'mongoid_shortener/shortened_urls#translate', :via => :get, :constraints => { :unique_key => "~.+" }
 end
