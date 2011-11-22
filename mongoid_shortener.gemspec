@@ -7,11 +7,11 @@ require "mongoid_shortener/version"
 Gem::Specification.new do |s|
   s.name        = "mongoid_shortener"
   s.version     = MongoidShortener::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of MongoidShortener."
-  s.description = "TODO: Description of MongoidShortener."
+  s.authors     = ["Teng Siong Ong"]
+  s.email       = ["siong1987@gmail.com"]
+  s.homepage    = ""
+  s.summary     = "MongoidShortener is a simple Rails 3.1 engine that shortens URL based on Mongoid."
+  s.description = "MongoidShortener is a simple Rails 3.1 engine that shortens URL based on Mongoid."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
