@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = MongoidShortener::VERSION
   s.authors     = ["Teng Siong Ong"]
   s.email       = ["siong1987@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/siong1987/mongoid_shortener"
   s.summary     = "MongoidShortener is a simple Rails 3.1 engine that shortens URL based on Mongoid."
   s.description = "MongoidShortener is a simple Rails 3.1 engine that shortens URL based on Mongoid."
 
@@ -17,7 +17,5 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.1.1"
-  s.add_dependency "yab62", "1.0.1"
-
-  s.add_development_dependency "sqlite3"
+  s.add_dependency "yab62", "~> 1.0.1"
 end
