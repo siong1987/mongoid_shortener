@@ -13,6 +13,7 @@ To use MongoidShortener, first you have to install the gem.
 ```ruby
 # Gemfile
 gem "mongoid_shortener"
+gem "yab62", require: "yab62"
 # Terminal
 bundle install
 ```
