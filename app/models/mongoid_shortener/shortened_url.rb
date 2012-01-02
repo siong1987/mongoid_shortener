@@ -37,7 +37,7 @@ module MongoidShortener
     def init_unique_key
       # generate a unique key for the link
       begin
-        self.unique_key = YAB62.encode62(ShortenedUrl::count)
+        self.unique_key = ShortenedUrl::count.encode62
       end while ShortenedUrl::where(:unique_key => self.unique_key).first
     end
 
