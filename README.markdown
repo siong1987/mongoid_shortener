@@ -90,6 +90,11 @@ end
 
 Let me know if you find any bug for this particular plugin.
 
+ATTRIBUTION
+===========
+
+Parts of the code are from the gem [shortener][2].
+
 LICENSE
 =======
 
@@ -117,3 +122,4 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 [1]: https://github.com/siong1987/yab62
+[2]: https://github.com/jpmcgrath/shortener
