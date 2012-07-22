@@ -8,8 +8,8 @@ gemspec
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
 
-gem 'mongoid', '2.2.4'
-gem 'bson_ext', '1.3.1'
+gem 'rails', '3.2.6'
+gem 'mongoid', '3.0.0'
 gem 'yab62', '1.0.1'
 
 # Declare any dependencies that are still in development here instead of in
