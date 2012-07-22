@@ -7,8 +7,8 @@ module MongoidShortener
     field :unique_key, :type => String
     field :use_count,  :type => Integer, :default => 0
 
-    index :url, :unique => true
-    index :unique_key, :unique => true
+    index({ url: 1 }, { unique: true })
+    index({ unique_key: 1 }, { unique: true })
 
     URL_PROTOCOL_HTTP = "http://"
 
