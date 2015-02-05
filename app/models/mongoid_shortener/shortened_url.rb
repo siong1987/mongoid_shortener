@@ -23,8 +23,6 @@ module MongoidShortener
     validates_presence_of :unique_key
     validates_uniqueness_of :unique_key
 
-    attr_accessible :url
-
     before_validation :clean_destination_url, :init_unique_key, :on => :create
 
     # ensure the url starts with it protocol
