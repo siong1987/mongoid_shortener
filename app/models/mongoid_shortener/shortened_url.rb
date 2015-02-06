@@ -12,7 +12,7 @@ module MongoidShortener
 
     URL_PROTOCOL_HTTP = "http://"
 
-    REGEX_HTTP_URL = /^\s*(http[s]?:\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?\s*$/i
+    REGEX_HTTP_URL = /\A\s*(http[s]?:\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?\s*\z/i
     REGEX_LINK_HAS_PROTOCOL = Regexp.new('\Ahttp:\/\/|\Ahttps:\/\/', Regexp::IGNORECASE)
 
     validates_format_of :url, :with => REGEX_HTTP_URL
@@ -22,8 +22,6 @@ module MongoidShortener
 
     validates_presence_of :unique_key
     validates_uniqueness_of :unique_key
-
-    attr_accessible :url
 
     before_validation :clean_destination_url, :init_unique_key, :on => :create
 
